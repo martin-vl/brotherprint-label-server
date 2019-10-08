@@ -1,0 +1,9 @@
+version: '3'
+services:
+  php-apache:
+    build:
+      context: ${PWD}/app
+    container_name: labelserver
+    restart: always
+    ports:
+      - 8070:5000
