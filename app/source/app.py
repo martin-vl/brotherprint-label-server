@@ -3,12 +3,12 @@ from flask import Flask, request
 from brotherprint import BrotherPrint
 import socket
 
-tempNumber = 1
 printerIP = '192.168.2.20'
 app = Flask(__name__)
 
-@app.route('/labelserver')
-def labelserver():
+@app.route('/storagelabel')
+def storagelabel():
+  tempNumber = 1
   box = request.args.get('box')
   barcode = request.args.get('barcode')
   name = request.args.get('name')
@@ -24,7 +24,7 @@ def labelserver():
   printjob.select_and_insert('name', name)
   printjob.template_print()
 
-  return '''<h1>Printing label</h1>
+  return '''<h1>Printing storage label</h1>
             <p>Box: {}<br>
             Barcode: {}<br>
             Name: {}</p>'''.format(box,barcode,name)
