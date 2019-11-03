@@ -3,7 +3,7 @@ from flask import Flask, request
 from brotherprint import BrotherPrint
 import socket
 
-printerIP = '192.168.2.20'
+printerIP = '192.168.2.21'
 app = Flask(__name__)
 
 @app.route('/storagelabel')
